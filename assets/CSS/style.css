@@ -8,3 +8,7 @@
 .container h1 {
     font-size: 60px;
 }
+
+.card-body h1 {
+    font-size: medium;
+}
