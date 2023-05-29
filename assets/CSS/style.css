@@ -1,0 +1,10 @@
+.container {
+    background-color: rgb(24, 24, 105);
+    color: white;
+    text-align: center;
+    max-width: 100%;
+}
+
+.container h1 {
+    font-size: 60px;
+}
