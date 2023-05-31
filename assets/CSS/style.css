@@ -15,9 +15,9 @@
     
 }
 
- .col-sm-3{
+  .col-sm-3{
     height: 100%;
-} 
+}  
 
  .card-columns {
     column-count: 5;

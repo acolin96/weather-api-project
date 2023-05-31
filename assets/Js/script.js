@@ -61,50 +61,51 @@ function searchCity(event) {
         // Call the 5-Day Forecast API and populate the forecast
         // ... (code for fetching and populating the forecast data)
         // Call the 5-Day Forecast API and populate the forecast
-fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=9b8a406e04a7c1156242da5d9838d553Y&units=metric`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      // Get the forecast list from the response
-      var forecastList = data.list;
-  
-      // Select the forecast container element
-      var forecastContainer = document.getElementById("five-day");
-  
-      // Clear the previous forecast data
-      forecastContainer.innerHTML = "";
-  
-      // Check if forecast data is available
-      if (forecastList && forecastList.length > 0) {
-        // Loop through the forecast list
-        for (var i = 0; i < forecastList.length; i++) {
-          // Get the forecast data for each day
-          var forecastData = forecastList[i];
-          var date = forecastData.dt_txt;
-          var temperature = forecastData.main.temp;
-          var humidity = forecastData.main.humidity;
-  
-          // Create HTML elements for the forecast data
-          var forecastItem = document.createElement("div");
-          forecastItem.classList.add("col-2");
-          forecastItem.innerHTML = `
-            <p>Date: ${date}</p>
-            <p>Temperature: ${temperature}°C</p>
-            <p>Humidity: ${humidity}%</p>
-          `;
-  
-          // Append the forecast item to the forecast container
-          forecastContainer.appendChild(forecastItem);
-        }
-      } else {
-        // No forecast data available
-        forecastContainer.innerHTML = "<p>No forecast data available</p>";
-      }
-    })
-    .catch((error) => {
-      console.log("Error fetching 5-day forecast:", error);
-    });
+        fetch(
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=9b8a406e04a7c1156242da5d9838d553&units=imperial`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              // Get the forecast list from the response
+              var forecastList = data.list;
+          
+              // Select the forecast container element
+              var forecastContainer = document.getElementById("five-day");
+          
+              // Clear the previous forecast data
+              forecastContainer.innerHTML = "";
+          
+              // Check if forecast data is available
+              if (forecastList && forecastList.length > 0) {
+                // Loop through the forecast list
+                for (var i = 0; i < forecastList.length; i++) {
+                  // Get the forecast data for each day
+                  var forecastData = forecastList[i];
+                  var date = forecastData.dt_txt;
+                  var temperature = forecastData.main.temp;
+                  var humidity = forecastData.main.humidity;
+          
+                  // Create HTML elements for the forecast data
+                  var forecastItem = document.createElement("div");
+                  forecastItem.classList.add("col-2");
+                  forecastItem.innerHTML = `
+                    <p>Date: ${date}</p>
+                    <p>Temperature: ${temperature}°C</p>
+                    <p>Humidity: ${humidity}%</p>
+                  `;
+          
+                  // Append the forecast item to the forecast container
+                  forecastContainer.appendChild(forecastItem);
+                }
+              } else {
+                // No forecast data available
+                forecastContainer.innerHTML = "<p>No forecast data available</p>";
+              }
+            })
+            .catch((error) => {
+              console.log("Error fetching forecast:", error);
+            });
+          
   
       })
       .catch((error) => {
