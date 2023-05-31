@@ -1,7 +1,8 @@
-.header {
+.title {
     background-color: rgb(24, 24, 105);
     color: white;
     text-align: center;
+    font-size: 60px;
     max-width: 100%;
 }
 
